@@ -22,4 +22,6 @@ __pycache__/
 .venv
 
 # static files
-static/
+/app/static/
+# media files
+/app/media/
