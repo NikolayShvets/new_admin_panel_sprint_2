@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:16.3
+    container_name: movies_db
+    restart: always
+    env_file:
+        - ./app/.env
+    ports:
+      - 5454:5432
+    volumes:
+        - ./dbs/postgresql-data:/var/lib/postgresql/data
+
+  service:
+    image: movies
+    container_name: movies
+    build:
+      context: ./app
+    env_file: ./app/.env
+    volumes:
+      - ./app/static:/opt/app/static/
+      - ./app/media:/opt/app/media/
+    command: bash -c "
+      python3 manage.py migrate &&
+      python3 manage.py collectstatic --noinput &&
+      gunicorn -w 3 config.wsgi:application --bind 0.0.0.0:8000"
+    depends_on:
+            - db
+    restart: always
+
+  nginx:
+    image: nginx:1.25.5
+    container_name: movies_nginx
+    ports:
+      - "8001:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./configs:/etc/nginx/conf.d:ro
+      - ./app/static:/var/www/static/
+      - ./app/media:/var/www/media/
+    depends_on:
+      - service
