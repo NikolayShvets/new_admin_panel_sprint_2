@@ -25,3 +25,5 @@ __pycache__/
 /app/static/
 # media files
 /app/media/
+# db files
+/dbs

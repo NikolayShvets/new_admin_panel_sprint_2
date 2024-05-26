@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: postgres:16.3
+    image: postgres:16.1
     container_name: movies_db
     restart: always
     env_file:
