@@ -13,6 +13,7 @@ services:
         - ./dbs/postgresql-data:/var/lib/postgresql/data
 
   service:
+    image: movies_image
     container_name: movies
     build:
       context: ./app
