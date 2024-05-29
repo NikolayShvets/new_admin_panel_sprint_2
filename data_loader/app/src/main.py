@@ -8,6 +8,7 @@ from services import PostgreSQLLoder, SQLiteExtractor
 
 # TODO: это все нужно переделать в Django-команду и добавить в Makefile
 
+
 def load_from_sqlite(
     connection: sqlite3.Connection,
     pg_conn: _connection,

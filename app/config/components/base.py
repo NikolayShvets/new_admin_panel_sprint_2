@@ -20,7 +20,7 @@ DEBUG = env.bool("DEBUG", False)
 ALLOWED_HOSTS = ["*"]
 
 BASE_URL = env.str("BASE_URL", "")
-API_PREFIX = env.str("API_PREFIX", "api/")
+API_PREFIX = env.str("API_PREFIX", "api/v1/")
 
 HOST = env.str("HOST", "http://localhost/")
 

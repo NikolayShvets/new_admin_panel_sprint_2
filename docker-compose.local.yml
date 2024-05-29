@@ -11,3 +11,12 @@ services:
       - 5454:5432
     volumes:
         - ./dbs/postgresql-data:/var/lib/postgresql/data
+  
+  redis:
+    image: redis
+    container_name: movies_redis
+    restart: always
+    ports:
+        - 6380:6379
+    volumes:
+        - ./dbs/redis-data:/data/

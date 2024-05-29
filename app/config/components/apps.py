@@ -9,6 +9,9 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "debug_toolbar",
+    "rest_framework",
+    "drf_spectacular",
+    "constance",
 ]
 
 INTERNAL_APPS = [

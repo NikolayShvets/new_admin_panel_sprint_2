@@ -83,6 +83,8 @@ class Person(UUIDMixin, CreatedModifiedMixin):
 class PersonFilmwork(UUIDMixin, CreatedMixin):
     class Role(models.TextChoices):
         ACTOR = "actor", _("actor")
+        DIRECTOR = "director", _("director")
+        WRITER = "writer", _("writer")
 
     film_work = models.ForeignKey(
         "FilmWork", on_delete=models.CASCADE, verbose_name=_("film_work")
