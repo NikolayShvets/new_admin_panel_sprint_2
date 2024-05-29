@@ -20,4 +20,8 @@ include(
     "components/templates.py",
     "components/database.py",
     "components/auth_validators.py",
+    "components/logging.py",
+    "components/drf.py",
+    "components/redis.py",
+    "components/constance.py",
 )

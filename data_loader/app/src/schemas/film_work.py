@@ -1,6 +1,6 @@
-from typing import Literal, Annotated
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, Field, BeforeValidator
+from pydantic import BaseModel, BeforeValidator, Field
 
 
 class FilmWork(BaseModel):
