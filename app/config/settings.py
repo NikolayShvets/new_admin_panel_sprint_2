@@ -16,6 +16,7 @@ include(
     "components/base.py",
     "components/apps.py",
     "components/middlewares.py",
+    "components/debug_toolbar.py",
     "components/csrf.py",
     "components/templates.py",
     "components/database.py",

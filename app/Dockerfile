@@ -6,8 +6,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV DJANGO_SETTINGS_MODULE "config.settings"
 
+RUN apt update && apt install gettext -y && pip install --upgrade pip
 COPY /requirements/base.txt requirements.txt
-RUN apt update && pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY /scripts /scripts
 RUN chmod +x /scripts/entrypoint.sh
