@@ -15,9 +15,16 @@ api_urlpatterns = [
 
 internal_urlpatterns = [
     path("admin/", admin.site.urls),
-    path("__debug__/", include("debug_toolbar.urls")),
     path(settings.API_PREFIX, include(api_urlpatterns)),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    internal_urlpatterns = [
+        path("__debug__/", include(debug_toolbar.urls)),
+        *internal_urlpatterns,
+    ]
 
 urlpatterns = [
     path(settings.BASE_URL, include(internal_urlpatterns)),

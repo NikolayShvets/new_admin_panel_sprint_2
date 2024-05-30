@@ -1,6 +1,4 @@
-import environ
-
-env = environ.Env()
+from config.components.base import env
 
 DATABASES = {
     "default": {
